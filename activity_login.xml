@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bffd"
+       >
+    <ImageView
+            android:layout_width="200dp"
+            android:layout_height="170dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:id="@+id/imgIcon"
+            android:src="@drawable/icon"/>
+
+    <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="24dp"
+            android:textSize="23sp"
+            android:textColor="@color/White"
+            android:focusableInTouchMode="true"
+            android:visibility="visible"
+            android:hint="@string/user_name"
+            android:backgroundTint="@color/White"
+            android:inputType="text"
+            android:focusable="true"
+            android:layout_below="@+id/imgIcon"
+
+
+            />
+
+    <com.hbb20.CountryCodePicker
+
+            android:layout_below="@+id/etPassword"
+            android:id="@+id/country"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_width="wrap_content"
+            android:background="@color/White"
+            app:ccp_defaultNameCode="Ind"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="25dp"
+            />
+
+
+
+    <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:focusableInTouchMode="true"
+            android:textSize="23sp"
+            android:layout_marginEnd="24dp"
+            android:backgroundTint="@color/White"
+            android:maxLength="8"
+            android:focusable="true"
+            android:hint="@string/prompt_password"
+            android:imeActionLabel="@string/action_sign_in_short"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+
+
+            android:layout_below="@+id/etUsername"
+
+            />
+    <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:focusableInTouchMode="true"
+            android:hint="@string/phone_number"
+            android:inputType="phone"
+            android:maxLines="1"
+            android:maxLength="10"
+            android:visibility="visible"
+            android:layout_toRightOf="@id/country"
+            android:focusable="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="25dp"
+            android:backgroundTint="@color/White"
+
+            android:layout_below="@+id/etPassword"
+
+            />
+    <EditText
+            android:id="@+id/etCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberPassword"
+            android:focusableInTouchMode="true"
+            android:maxLength="6"
+            android:hint="@string/enter_code"
+            android:focusable="true"
+            android:layout_below="@+id/etPhone"
+            android:layout_centerHorizontal="true"
+            android:textSize="34sp"
+            android:backgroundTint="@color/White"/>
+
+    <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/colorPrimary"
+            android:textSize="15sp"
+            android:enabled="false"
+            android:textColor="@color/White"
+            android:text="@string/action_sign_in"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+
+            />
+    <Button
+            android:id="@+id/bt_send_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="14dp"
+            android:background="@color/Yellow"
+            android:text="@string/send_otp"
+            android:layout_below="@+id/etCode"
+            />
+    <Button
+            android:id="@+id/bt_verify_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/Yellow"
+            android:layout_margin="14dp"
+            android:text="@string/verify_otp"
+
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/etCode"
+            android:layout_toRightOf="@+id/bt_send_otp"/>
+
+
+    <Button
+            android:id="@+id/bt_resend_otp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Yellow"
+            android:layout_margin="14dp"
+            android:text="@string/resend_otp"
+            android:layout_below="@id/etCode"
+            android:layout_toRightOf="@+id/bt_verify_otp"/>
+
+
+
+
+
+
+    <ListView
+            android:id="@+id/list_users"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@color/Aqua"
+
+            android:layout_below="@+id/bt_verify_otp"
+            android:dividerHeight="3dp"
+            android:drawSelectorOnTop="true"
+            />
+    </RelativeLayout>
