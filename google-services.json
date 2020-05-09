@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "396125548482",
+    "firebase_url": "https://video-5f326.firebaseio.com",
+    "project_id": "video-5f326",
+    "storage_bucket": "video-5f326.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396125548482:android:bf2377d32ae58058ebf05b",
+        "android_client_info": {
+          "package_name": "com.pranjal.video"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "396125548482-gtt18b7roi7466dndfjl92cdhdpq3kft.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkbnkPYf5fRxuAemmFsubhajGbq8X5ltg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "396125548482-gtt18b7roi7466dndfjl92cdhdpq3kft.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

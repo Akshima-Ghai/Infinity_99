@@ -1,77 +1,83 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: 'com.android.application'
 
-buildscript {
-    ext.kotlin_version = '1.3.21'
-    repositories {
-        google()
-        jcenter()
-        
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.pranjal.video"
+        minSdkVersion 22
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.3'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.gms:google-services:4.3.3'
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        jcenter()
-        maven {
-            url "https://github.com/QuickBlox/quickblox-android-sdk-releases/raw/master/"
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-}
 
-ext {
-    compileSdkVersion = 28
-    buildToolsVersion = "28.0.3"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dependencies {
 
-    minSdkVersion = 14
-    targetSdkVersion = 28
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+        implementation 'androidx.appcompat:appcompat:1.0.2'
+        implementation 'androidx.core:core-ktx:1.0.1'
 
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
 
-    lintAbortOnError = false
+        androidTestImplementation'androidx.test:runner:1.2.0'
 
-    // QuickBlox SDK version
-    qbChatAdapterVersion = '2.0'
-    qbSdkVersion = '3.9.0'
 
-    versionCode = 381
-    versionName = '3.9.0'
 
-    testRunnerVersion = "1.0.2"
 
-    // Dependency versions
-    playServicesVersion = '16.0.0'
 
-    constraintLayoutAndroidXVersion = '1.1.3'
-    viewPagerAndroidXVersion = '1.0.0'
-    fragmentAndroidXVersion = '1.0.0'
-    lifecycleViewmodelAndroidXVersion = '1.0.0'
-    coreKtxVersion = '1.0.0'
+        implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+        implementation 'com.google.android.material:material:1.1.0'
+        implementation 'androidx.annotation:annotation:1.1.0'
+        implementation'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
-    rxAndroidVersion = '1.2.1'
-    materialVersion = '1.0.0'
+        implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+        implementation 'androidx.navigation:navigation-fragment:2.2.2'
+        implementation 'androidx.navigation:navigation-ui:2.2.2'
+        implementation 'androidx.navigation:navigation-fragment-ktx:2.2.2'
+        implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
+        testImplementation 'junit:junit:4.13'
+        androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+        androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    glideVersion = '3.6.1'
-    pullToRefreshVersion = '3.2.3'
-    robotoTextViewVersion = '4.0.0'
-    crashlyticsVersion = '2.9.5'
-    fabricToolsVersion = '1.25.4'
-    kotlinGradlePlugin = '1.2.71'
-    stickylistheadersVersion = '0.4.2'
-    swipyVersion = '1.2.3'
 
-    dimensionDefault = 'default'
-}
+        implementation "com.google.android.material:material:${rootProject.materialVersion}"
+        implementation "androidx.fragment:fragment:${rootProject.fragmentAndroidXVersion}"
+        implementation "androidx.lifecycle:lifecycle-viewmodel:${rootProject.lifecycleViewmodelAndroidXVersion}"
+        implementation "androidx.constraintlayout:constraintlayout:${rootProject.constraintLayoutAndroidXVersion}"
+        implementation "androidx.viewpager:viewpager:${rootProject.viewPagerAndroidXVersion}"
+        implementation "com.quickblox:quickblox-android-sdk-videochat-webrtc:$rootProject.qbSdkVersion"
+        implementation "com.github.bumptech.glide:glide:${rootProject.glideVersion}"
+        implementation "androidx.core:core-ktx:${rootProject.coreKtxVersion}"
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+
+        implementation "com.quickblox:quickblox-android-sdk-messages:3.9.2"
+        implementation "com.quickblox:quickblox-android-sdk-chat:3.9.2"
+        implementation "com.quickblox:quickblox-android-sdk-content:3.9.2"
+        implementation "com.quickblox:quickblox-android-sdk-videochat-webrtc:3.9.2"
+        implementation "com.quickblox:quickblox-android-sdk-conference:3.9.2"
+        implementation "com.quickblox:quickblox-android-sdk-customobjects:3.9.2"
+        implementation 'com.google.firebase:firebase-core:17.4.0'
+        implementation 'com.google.firebase:firebase-database:19.3.0'
+
+        implementation 'com.google.firebase:firebase-storage:19.1.1'
+        implementation 'com.google.firebase:firebase-auth:19.3.1'
+        implementation 'com.firebaseui:firebase-ui-database:3.2.2'
+        implementation 'com.hbb20:ccp:2.1.9'
+        implementation 'pub.devrel:easypermissions:0.4.0'
+    }
 }
